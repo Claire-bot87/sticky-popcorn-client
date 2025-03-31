@@ -69,6 +69,98 @@ https://trello.com/b/qLbGLI4H/sticky-popcorn-app
 
 
 ## Build Process
+As this was a group project, I focused on authentication, both on the front end and back end. Here i’m going to focus on the Signup process.
+
+I had a model called User
+
+Then in my user Controller:
+
+```.js
+router.post('/signup', async (req, res, next) => {
+    try {
+        const user = await User.create(req.body)
+        const token = generateToken(user)
+        return res.status(201).json({
+            message: 'User created successfully',
+            token
+        })
+    } catch (error) {
+        next(error)
+    }
+})
+```
+
+So it uses Model.create, a method provided by Mongoose, which takes the request as an argument. And it creates a document in our MongoDB collection(table). It also asigns that object to a variable , ‘user’.
+
+
+It then passes that ‘user’ as an argument to my generateToken function
+
+The generateToken returns a token which contains within it the username and user id as well as a token secret.
+
+It uses a package called json web token  to generate this token and return it, where it is saved to the variable ‘token’
+
+This is then returned to the client, alongside a message, as the res.data. So there are two keys on the data key : Token and message. 
+This is saved to a variable called data within the handlesubmit function, in the client’s signup component.
+
+
+It then returns a message and the token. 
+
+ #### From the front end
+
+I built out a Signup component in my React app.
+
+It used useState hook to set the state for the form data.
+
+The component returns a form .
+
+As a user types intot the form the form data updates
+
+```.js
+ const handleChange = (e) => {
+    console.dir(e.target)
+    setErrors({ ...errors, [e.target.name]: '' })
+    setFormData({ ...formData, [e.target.name]: e.target.value })
+  }
+```
+
+When the form is submitted
+The formData is passed to the signup service, which I wrote in a separate services file and folder.
+
+The service takes the formData as an argument and sends an Axios post request to the server
+
+
+The signup service function then returns res.data to the handlesubmit function where it was initially called.
+That res.data is assigned to a variable called ‘data’
+
+That is then used to set the token. It does this by passing the token key in the data object into the setToken function as an argument. It saves this token to local storage. 
+
+```.js
+export const setToken = (token) => {
+  localStorage.setItem(tokenName, token)
+}
+```
+
+Then we use getUserFromToken to get the user form the token 
+As we know the username and id are within the token, 
+Then we use what is returned from getUserFromToken to setUser, and in doing tso, we set the userContext for the whole application.
+
+This is handled in the userContext.js file:
+```.js
+const UserContext = createContext(null)
+
+// The "Provider" is wrapped around any component that should have access to the above context
+function UserProvider({ children }){
+  // The user state works as any other state and will form the value of our user context
+  const [user, setUser] = useState(getUserFromToken())
+
+  // Below, we provide a value key to the context provider, which gives any component access to the user and setUser values
+  return (
+    <UserContext.Provider value={{ user, setUser }}>
+      { children }
+    </UserContext.Provider>
+  )
+}
+```
 
 
 
