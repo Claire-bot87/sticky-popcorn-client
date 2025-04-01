@@ -66,8 +66,7 @@ The project is deployed (guides will be provided)
 
 ## Planning
 https://trello.com/b/qLbGLI4H/sticky-popcorn-app
-![Wireframe 1](https://res.cloudinary.com/dpv0j8frj/image/upload/v1743495336/Screenshot_2025-04-01_at_09.12.28_hw7cbo.png) ![Wireframe 2](https://res.cloudinary.com/dpv0j8frj/image/upload/v1743495335/Screenshot_2025-04-01_at_09.12.15_zvev3g.png)
-![Wireframe 3](https://res.cloudinary.com/dpv0j8frj/image/upload/v1743495335/Screenshot_2025-04-01_at_09.12.41_rhdj2x.png)
+![Wireframe 1](https://res.cloudinary.com/dpv0j8frj/image/upload/v1743495653/wireframe_z2hmqa.png)
 
 ## Build Process
 As this was a group project, I focused on authentication, both on the front end and back end. Here i’m going to focus on the Signup process.
