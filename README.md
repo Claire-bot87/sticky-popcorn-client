@@ -3,19 +3,10 @@
 ### Table of Contents
 * [Description](#description)
     - [Deployment Link](#deployment-link)
-    - [Code Installation](#code-installation)
-    - [Timeframe and Working Team](#timeframe-and-working-team)
     - [Technologies Used](#technologies-used)
     - [Brief](#brief)
 * [Planning](#planning)
-    - [Styling](#styling)
-    - [Finding a dataset](#finding-a-dataset)
 * [Build Process](#build-process)
-    - [Seeding the database](#seeding-the-database)
-    - [Handling the data](#handling-the-data)
-    - [Setting up the frontend](#setting-up-the-frontend)
-    - [The browse page](#the-browse-page)
-    - [Styling](#styling)
     - [Stretch Goals](#stretch-goals)
 * [Challenges](#challenges)
 * [Wins](#wins)
@@ -24,24 +15,14 @@
 * [Future Improvements](#future-improvements)
 
 # Description
-I completed this project in week 9 of the course. It was a full stack application with an express back end and react front end. It is a movie review website. 
+I completed this project in week 9 of the course. It was a full stack application with an Express Back End and React Front End. It is a movie review website. This was a team project. I worked with classmates Raj and Mai. We shared responsabilities for planning, development and deployment.
+
+### Collaborators
+[Kamran Raja](https://github.com/Kam-Gemini)\
+[Mai-Yee Crossley](https://github.com/maiyeecrossley)
 
 ### Deployment Link 
 https://stickypopcorn1.netlify.app/
-
-### Code Installation
-
-
-
-
-#### For the frontend:
-https://github.com/Claire-bot87/sticky-popcorn-client
-
-#### For the backend:
-https://github.com/Claire-bot87/sticky-popcorn-api
-
-### Timeframe and Working Team
-We had 1 week to complete this project. I worked in a group of three with my classmates Kamran and Mai. 
 
 
 ### Technologies Used
@@ -61,11 +42,13 @@ Build a front-end application using React, that uses fetch or axios to call the 
 Authentication/Authorization should be implemented on both front-end and back-end
 Beyond the user model you should have at least 2 more data entities, like posts and replies.
 CRUD should be implemented on the front-end and back-end, that is to say that I should as a user be able to successfully make a GET, POST, PUT & DELETE request from the react app.
-The project is deployed (guides will be provided)
+
 
 
 ## Planning
-https://trello.com/b/qLbGLI4H/sticky-popcorn-app
+[Trello Board](https://trello.com/b/qLbGLI4H/sticky-popcorn-app)\
+[Entity Relationship Diagram](https://dbdiagram.io/d/StickyPopcorn-67a5d3a3263d6cf9a05e3be6)\
+[Router Table](https://docs.google.com/spreadsheets/d/1dBa-vcvxqSvyo68SDoe2hoy5MUcR_3tIvn12t-FFFl8/edit?usp=sharing)\
 ![Wireframe 1](https://res.cloudinary.com/dpv0j8frj/image/upload/v1743495653/wireframe_z2hmqa.png)
 
 ## Build Process
@@ -107,7 +90,7 @@ It then returns a message and the token.
 
  #### From the front end
 
-I built out a Signup component in my React app.
+I built out a Signup component in our React app.
 
 It used useState hook to set the state for the form data.
 
@@ -142,7 +125,7 @@ export const setToken = (token) => {
 
 Then we use getUserFromToken to get the user form the token 
 As we know the username and id are within the token, 
-Then we use what is returned from getUserFromToken to setUser, and in doing tso, we set the userContext for the whole application.
+Then we use what is returned from getUserFromToken to setUser, and in doing so, we set the userContext for the whole application.
 
 This is handled in the userContext.js file:
 ```.js
@@ -168,13 +151,19 @@ function UserProvider({ children }){
 
 
 ## Challenges
+The key challenge in this project was working as a team on a single code base, maintaining clear lines of communication and remembering to git pull the latest code.
+
 
 
 ## Wins
-
+- Great team communication and collaboration.
+- Additional features like 'Watchlist' and 'Favourites'.
 
 ## Key Learnings
 
+This was my first React App so I was able to better understand state management and hooks like useStae, and useEffect.
+
+I was also able to better understand authorisation and authentication. It was good to be able to complete the whole process, on the Back End and Front End. I had previously had some difficulties understand authentication tokens. So this gave me an opportunity to deepen my understanding.
 
 ## Bugs
 
