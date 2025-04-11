@@ -166,7 +166,7 @@ This was my first React App so I was able to better understand state management 
 I was also able to better understand authorisation and authentication. It was good to be able to complete the whole process, on the Back End and Front End. I had previously had some difficulties understand authentication tokens. So this gave me an opportunity to deepen my understanding.
 
 ## Bugs
-
+I need to add in error messages to the sign-up and sign-in pages.
 
 ## Future Improvements
-
+At the moment we have a star-rating feature. But the ratings are not currently saved and we do not get have a 'top-rated movies' filter. This is an improvement I would liek to make.
