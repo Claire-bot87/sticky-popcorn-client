@@ -7,7 +7,6 @@
     - [Brief](#brief)
 * [Planning](#planning)
 * [Build Process](#build-process)
-    - [Stretch Goals](#stretch-goals)
 * [Challenges](#challenges)
 * [Wins](#wins)
 * [Key Learnings](#key-learnings)
@@ -15,7 +14,7 @@
 * [Future Improvements](#future-improvements)
 
 # Description
-I completed this project in week 9 of the course. It was a full stack application with an Express Back End and React Front End. It is a movie review website. This was a team project. I worked with classmates Raj and Mai. We shared responsabilities for planning, development and deployment.
+I completed this project in week 9 of the course. It was a Full Stack application with an Express backend and ReactJS frontend. It is a movie review website. This was a team project. I worked with classmates Raj and Mai. We shared responsibilities for planning, development and deployment.
 
 ### Collaborators
 [Kamran Raja](https://github.com/Kam-Gemini)\
@@ -24,24 +23,23 @@ I completed this project in week 9 of the course. It was a full stack applicatio
 ### Deployment Link 
 https://stickypopcorn1.netlify.app/
 
-
 ### Technologies Used
-GitHub
-Express
-Node
-React
-MongoDB Compass
-MongoDB Atlas
-Bootstrap
-Netlify
+- GitHub
+- Express
+- Node
+- ReactJS
+- MongoDB Compass
+- MongoDB Atlas
+- Bootstrap
+- Netlify
 
 
 ### Brief
-Build a REST API using MongoDB, Express, Node
-Build a front-end application using React, that uses fetch or axios to call the API
-Authentication/Authorization should be implemented on both front-end and back-end
-Beyond the user model you should have at least 2 more data entities, like posts and replies.
-CRUD should be implemented on the front-end and back-end, that is to say that I should as a user be able to successfully make a GET, POST, PUT & DELETE request from the react app.
+- Build a REST API using MongoDB, Express and Node.
+- Build a frontend application using ReactJS, that uses fetch or axios to call the API.
+- Authentication/Authorization should be implemented on both frontend and backend
+- Beyond the user model you should have at least 2 more data entities.
+- CRUD should be implemented on the frontend and backend.
 
 
 
@@ -78,25 +76,25 @@ So it uses Model.create, a method provided by Mongoose, which takes the request 
 
 It then passes that ‘user’ as an argument to my generateToken function
 
-The generateToken returns a token which contains within it the username and user id as well as a token secret.
+The generateToken returns a token which contains within it the username and user ID as well as a token secret.
 
-It uses a package called json web token  to generate this token and return it, where it is saved to the variable ‘token’
+It uses a package called JSON Web Token  to generate this token and return it, where it is saved to the variable ‘token’.
 
 This is then returned to the client, alongside a message, as the res.data. So there are two keys on the data key : Token and message. 
-This is saved to a variable called data within the handlesubmit function, in the client’s signup component.
+This is saved to a variable called data within the handleSubmit function, in the client’s Signup component.
 
 
 It then returns a message and the token. 
 
- #### From the front end
+ #### From the frontend
 
 I built out a Signup component in our React app.
 
-It used useState hook to set the state for the form data.
+It used the useState hook to set the state for the form data.
 
 The component returns a form .
 
-As a user types intot the form the form data updates
+As a user types into the form, the form data updates:
 
 ```.js
  const handleChange = (e) => {
@@ -106,14 +104,13 @@ As a user types intot the form the form data updates
   }
 ```
 
-When the form is submitted
-The formData is passed to the signup service, which I wrote in a separate services file and folder.
+When the form is submitted, the formData is passed to the Signup service, which I wrote in a separate services file and folder.
 
 The service takes the formData as an argument and sends an Axios post request to the server
 
 
 The signup service function then returns res.data to the handlesubmit function where it was initially called.
-That res.data is assigned to a variable called ‘data’
+That res.data is assigned to a variable called ‘data’.
 
 That is then used to set the token. It does this by passing the token key in the data object into the setToken function as an argument. It saves this token to local storage. 
 
@@ -123,8 +120,7 @@ export const setToken = (token) => {
 }
 ```
 
-Then we use getUserFromToken to get the user form the token 
-As we know the username and id are within the token, 
+Then we use getUserFromToken to get the user from the token, as we know the username and ID are within the token.
 Then we use what is returned from getUserFromToken to setUser, and in doing so, we set the userContext for the whole application.
 
 This is handled in the userContext.js file:
@@ -146,10 +142,6 @@ function UserProvider({ children }){
 ```
 
 
-
-### Stretch Goals
-
-
 ## Challenges
 The key challenge in this project was working as a team on a single code base, maintaining clear lines of communication and remembering to git pull the latest code.
 
@@ -161,12 +153,12 @@ The key challenge in this project was working as a team on a single code base, m
 
 ## Key Learnings
 
-This was my first React App so I was able to better understand state management and hooks like useStae, and useEffect.
+This was my first React App so I was able to better understand state management and hooks like useState and useEffect.
 
-I was also able to better understand authorisation and authentication. It was good to be able to complete the whole process, on the Back End and Front End. I had previously had some difficulties understand authentication tokens. So this gave me an opportunity to deepen my understanding.
+I was also able to better understand authorisation and authentication. It was good to be able to complete the whole process, on the backend and frontend. I had previously had some difficulties understand authentication tokens. So this gave me an opportunity to deepen my understanding.
 
 ## Bugs
 I need to add in error messages to the sign-up and sign-in pages.
 
 ## Future Improvements
-At the moment we have a star-rating feature. But the ratings are not currently saved and we do not get have a 'top-rated movies' filter. This is an improvement I would liek to make.
+At the moment we have a star-rating button on the SingleMovie page. But the ratings are not currently saved and we do not get have a 'top-rated movies' filter. This is an improvement I would like to make.
